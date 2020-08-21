@@ -1,0 +1,44 @@
+GET http://localhost:9998/roles/all
+Accept: application/json
+
+###
+POST http://localhost:9998/signup
+Content-Type: application/json
+
+{
+  "name": "suresh prajapati",
+  "email": "suresh@gmail.ccom",
+  "credential": {
+    "username": "suresp",
+    "password": "pass",
+    "roles": [
+      {"id": 1},{"id": 2}
+    ]
+
+  }
+
+
+}
+
+
+###
+
+POST http://localhost:9998/signin
+Content-Type: application/json
+
+{
+  "username": "suresp",
+  "password": "newpass"
+}
+
+
+###
+PUT http://localhost:9998/credentials/update
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXJlc3AiLCJleHAiOjE1OTgwNzE1OTAsImlhdCI6MTU5ODA1MzU5MH0.Nj99nKBySSCcH64uBq4jr_CkZWs2KVOHobQoffJJaVyD1NWAmf1q4-4-WO4qBB1152gPzHQjZLu4SypRJtKqew
+
+{
+  "currentPassword": "pass54",
+  "newPassword": "newpass",
+  "repeatNewPassword": "newpass"
+}
