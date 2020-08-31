@@ -2,6 +2,7 @@ package com.example.jwtdemo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.util.HashSet;
 import java.util.List;
@@ -14,6 +15,7 @@ import javax.persistence.*;
 public class Credential {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @ApiModelProperty(hidden = true)
     private Long id;
     private String username;
     private String password;
@@ -35,6 +37,7 @@ public class Credential {
             cascade = CascadeType.ALL)
     @JsonIgnoreProperties("credential")
    // @JsonIgnore
+    @ApiModelProperty(hidden = true)
     private User user;
 
     public Credential() {
