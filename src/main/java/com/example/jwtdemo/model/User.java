@@ -1,6 +1,7 @@
 package com.example.jwtdemo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 
@@ -10,6 +11,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(hidden = true)
     private Long id;
 
     private String name;
@@ -21,6 +23,7 @@ public class User {
             orphanRemoval = true,
             cascade = CascadeType.ALL)
     @JsonIgnoreProperties("user")
+
     private Credential credential;
 
 
