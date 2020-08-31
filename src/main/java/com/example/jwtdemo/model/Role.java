@@ -1,6 +1,8 @@
 package com.example.jwtdemo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 
@@ -11,6 +13,7 @@ import javax.persistence.*;
 public class Role {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+
     private Long id;
 
 
@@ -26,6 +29,7 @@ public class Role {
 
     @ManyToMany(mappedBy = "roles")
     @JsonIgnoreProperties("roles")
+    @ApiModelProperty(hidden = true)
     private List<Credential> credentials;
 
     public Long getId() {
